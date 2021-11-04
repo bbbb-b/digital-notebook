@@ -42,8 +42,7 @@ class EventQuery(Query):
 			start_date_group.add_argument("--time", "--date", type = DateTime.parse)
 			start_date_group.add_argument("--utc-time", "--utc-date", type = DateTime.parse, default = None)
 			end_date_group = parser.add_mutually_exclusive_group() # not required
-			end_date_group.add_argument("--end-time", "--end-date", type = DateTime.parse,
-				default = DateTime.now() if op == "add" else argparse.SUPPRESS)
+			end_date_group.add_argument("--end-time", "--end-date", type = DateTime.parse)
 			end_date_group.add_argument("--duration", type = DateTime.parse_delta, default = None)
 		parser.add_argument("--type", choices = ["local", "global", "other"])
 		parser.add_argument("--completed", type = parse_bool)
