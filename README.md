@@ -15,6 +15,10 @@ A password with a domain/username. Optionally generates long secure passwords. C
 
 
 # Installation
+`git clone https://github.com/bbbb-b/digital-notebook`
+
+`cd digital-notebook`
+
 `makepkg -si`
 
 `pip3 install -r requirements.txt`
