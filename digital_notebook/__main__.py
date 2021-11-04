@@ -8,7 +8,7 @@ from __init__ import EventQuery, TodoQuery, PasswordQuery
 def execute_args(cls, func, filename, log_level, **kwargs):
 	query = cls(filename = filename, log_level = log_level)
 	kwargs = query.init_args(**kwargs)
-	init_file = os.path.dirname(__file__) + "/init.sql"
+	init_file = os.path.join(os.path.dirname(os.path.realpath(__file__)), "init.sql")
 	query.execute_sqlite_script(init_file) # init.sql is expected
 	ret = func(query, **kwargs)
 	query.close()
