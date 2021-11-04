@@ -16,6 +16,7 @@ A password with a domain/username. Optionally generates long secure passwords. C
 
 # Installation
 `makepkg -si`
+
 `pip3 install -r requirements.txt`
 
 # Examples
