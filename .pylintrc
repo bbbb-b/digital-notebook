@@ -1,0 +1,15 @@
+[MASTER]
+disable=
+	C0116, # docstring lol
+	C0115, # docstring (class)
+	C0114, # docstring (module)
+	R0904, # "too much public methods"
+	W1309, # no format fstring
+	W0622, # redifined-builtin (id gets used because sql and all that)
+	C0103, # why are len < 3 are bad variable names 
+	# E0402, # gives false positives
+	W0221, # too much false positives for weird method overloads with kwargs
+	W0201, # too much false positives with recordsclass 
+[FORMAT]
+indent-string=\t
+

@@ -1,0 +1,34 @@
+
+CREATE TABLE IF NOT EXISTS events (
+	id INTEGER PRIMARY KEY,
+	name VARCHAR NOT NULL,
+	notes VARCHAR NOT NULL DEFAULT "",
+	url VARCHAR DEFAULT NULL,
+	time DATETIME NOT NULL,
+	end_time DATETIME NOT NULL,
+	type VARCHAR NOT NULL DEFAULT "local",
+	completed BOOLEAN NOT NULL DEFAULT FALSE
+);
+
+CREATE TABLE IF NOT EXISTS todos (
+	id INTEGER PRIMARY KEY,
+	name VARCHAR NOT NULL,
+	notes VARCHAR NOT NULL DEFAULT "",
+	url VARCHAR DEFAULT NULL,
+	priority VARCHAR NOT NULL default "soon",
+	completed BOOLEAN NOT NULL DEFAULT FALSE
+);
+
+CREATE TABLE IF NOT EXISTS passwords (
+	id INTEGER PRIMARY KEY,
+	url VARCHAR NOT NULL,
+	username VARCHAR NOT NULL,
+	password VARCHAR NOT NULL,
+	notes VARCHAR DEFAULT ""
+);
+
+
+--ALTER table passwords rename column domain to url;
+--LTER TABLE todos RENAME COLUMN desc TO notes;
+--LTER TABLE passwords RENAME COLUMN desc TO notes;
+--ALTER TABLE events RENAME COLUMN desc TO notes;
