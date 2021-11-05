@@ -23,7 +23,7 @@ class DateTime(datetime):
 		return humanize.naturaltime(self)
 
 	def to_str(self, precise_date = False):
-		if not precise_date:
+		if precise_date:
 			return self.relative_date_str()
 		return self.human_date_str()
 
