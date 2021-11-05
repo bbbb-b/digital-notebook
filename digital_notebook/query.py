@@ -11,9 +11,10 @@ class Query:
 
 	table_name = ""
 	keys = ()
+	order_by = "id"
 
 	log_level = -2
-	order_by = None
+
 # MAIN FUNCTIONS
 
 	def __init__(self, filename, log_level):
@@ -23,7 +24,8 @@ class Query:
 		self.cur = self.con.cursor()
 
 	def init_args(self, order_by, **kwargs): # called right after init
-		self.order_by = order_by
+		if order_by is not None:
+			self.order_by = order_by
 		return kwargs
 
 	def close(self):
@@ -89,21 +91,16 @@ class Query:
 		if args is None:
 			args = []
 		limit_stmt = "" if limit is None else f"LIMIT {limit}\n"
+		order_stmt = f"ORDER BY {self.order_by}\n"
 		where_stmt = "" if len(where_stmts) == 0 else \
 			f"WHERE {' AND '.join(map(lambda x : f'({x})', where_stmts))}\n"
 		q = f"SELECT {self.stringify_keys()}\n" \
 			f"FROM {self.table_name}\n" \
-			f"{where_stmt}{limit_stmt}"
+			f"{where_stmt}{order_stmt}{limit_stmt}"
 		raw_data = self.execute_sqlite_query(q, args)
-		data = [*map(self.make_data, raw_data)]
-		data.sort(**self.get_sort_args())
+		data = [*map(self.make_data, raw_data)][::-1] # reverse
+		#data.sort(**self.get_sort_args())
 		return data
-
-	def get_sort_args(self):
-		return {
-			"key" : self.sort_key if self.order_by is None else lambda x : getattr(x, self.order_by),
-			"reverse": self.order_by is None,
-		}
 
 	@classmethod
 	def add_argument_group(cls, parser, first_name, *names, required, **kwargs):

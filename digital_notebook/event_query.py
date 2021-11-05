@@ -9,6 +9,7 @@ from colors import Colors
 class EventQuery(Query):
 	table_name = "events"
 	keys = ("id", "name", "notes", "url", "time", "end_time", "type", "completed")
+	order_by = "time"
 	precise_date = False # default
 
 	@staticmethod
@@ -119,11 +120,9 @@ class EventData(recordclass("EventData",
 	def get_priority(self):
 		if DateTime.now() > self.time:
 			return 0
-		if DateTime.parse("2 hours") > self.time:
+		if DateTime.parse("in 1 day") > self.time:
 			return 1
-		if DateTime.parse("1 day") > self.time:
-			return 2
-		return 3
+		return 2
 
 	def pretty_str(self):
 		s = []

@@ -8,6 +8,7 @@ from colors import Colors
 class PasswordQuery(Query):
 	table_name = "passwords"
 	keys = ("id", "url", "username", "password", "notes")
+	order_by = "url"
 
 	valid_chars = string.ascii_letters + string.digits # + "!" ???
 	password_length = 42

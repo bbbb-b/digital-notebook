@@ -7,6 +7,7 @@ from colors import Colors
 class TodoQuery(Query):
 	table_name = "todos"
 	keys = ("id", "name", "notes", "url", "priority", "completed")
+	order_by = "priority"
 
 	@staticmethod
 	def get_priorities():
