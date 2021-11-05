@@ -103,7 +103,7 @@ class Query:
 		return data
 
 	@classmethod
-	def add_argument_group(cls, parser, first_name, *names, required, **kwargs):
+	def add_argument_group(cls, parser, first_name, *names, required = False, **kwargs):
 		assert first_name[:2] == "--"
 		group = parser.add_mutually_exclusive_group(required = required)
 		group.add_argument(first_name, *names, **kwargs)

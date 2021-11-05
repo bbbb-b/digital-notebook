@@ -33,7 +33,7 @@ class TodoQuery(Query):
 		if op == "get":
 			parser.add_argument("--id", type = int)
 		cls.add_argument_group(parser, "--name", required = op == "add")
-		parser.add_argument("--notes", "--note", "--desc")
+		cls.add_argument_group(parser, "--notes", "--note", "--desc")
 		if op == "update":
 			parser.add_argument("--notes-concat", "--note-concat", "--desc-concat", default = None)
 		parser.add_argument("--url", "--domain")
