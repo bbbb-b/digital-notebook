@@ -29,13 +29,12 @@ class EventQuery(Query):
 			return
 		if op == "get":
 			parser.add_argument("--id", type = int)
-		name_group = parser.add_mutually_exclusive_group(required = op == "add")
-		name_group.add_argument("--name")
-		name_group.add_argument("name", nargs = "?")
+		cls.add_argument_group(parser, "--name", required = op == "add")
+		#parser.add_argument("--name", required = op == "add")
 		note_group = parser.add_mutually_exclusive_group()
 		note_group.add_argument("--notes", "--desc")
 		if op == "update":
-			note_group.add_argument("--notes-concat", "--desc-concat")
+			note_group.add_argument("--notes-concat", "--desc-concat", default = None)
 		parser.add_argument("--url", "--domain")
 		if op != "get":
 			start_date_group = parser.add_mutually_exclusive_group(required = op == "add")
