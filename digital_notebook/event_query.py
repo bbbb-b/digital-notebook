@@ -32,8 +32,8 @@ class EventQuery(Query):
 			parser.add_argument("--id", type = int)
 		cls.add_argument_group(parser, "--name", required = op == "add")
 		#parser.add_argument("--name", required = op == "add")
-		note_group = parser.add_mutually_exclusive_group()
-		note_group.add_argument("--notes", "--desc")
+		note_group = cls.add_argument_group(parser, "--notes", "--note", "--desc")
+		#note_group.add_argument("--notes", "--desc")
 		if op == "update":
 			note_group.add_argument("--notes-concat", "--desc-concat", default = None)
 		parser.add_argument("--url", "--domain")

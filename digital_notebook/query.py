@@ -108,6 +108,7 @@ class Query:
 		group = parser.add_mutually_exclusive_group(required = required)
 		group.add_argument(first_name, *names, **kwargs)
 		group.add_argument(first_name[2:], nargs="?")
+		return group
 
 # OVERWRITTEN METHODS
 
