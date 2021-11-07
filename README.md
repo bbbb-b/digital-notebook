@@ -40,8 +40,6 @@ Finds and copies to clipboard (without printing) your password to gmail.
 Sqlite3 file in `~/.digital-notebook/data.sqlite3`.
 
 # Future:
-Initialization is slow (importing `dateparser` takes like 0.2 seconds).
-
 Add example output images.
 
 Some sort of a way to merge 2 databases.

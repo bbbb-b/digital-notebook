@@ -1,7 +1,6 @@
 from datetime import datetime, timedelta
 import math
 import humanize
-import dateparser
 import pytimeparse
 
 class DateTime(datetime):
@@ -35,6 +34,7 @@ class DateTime(datetime):
 
 	@classmethod
 	def parse(cls, d):
+		import dateparser # speed
 		d = dateparser.parse(d)
 		if d is not None:
 			return cls.from_datetime(d).round()
