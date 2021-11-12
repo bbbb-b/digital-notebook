@@ -91,6 +91,8 @@ class EventQuery(Query):
 			kwargs["time"] = utc_time.from_utc()
 		if duration is not None:
 			kwargs["end_time"] = kwargs.get("time", data.time) + duration
+		if "time" in kwargs and "end_time" not in kwargs:
+			kwargs["end_time"] = kwargs["time"] + (data.end_time - data.time)
 		time = kwargs.get("time", data.time)
 		end_time = kwargs.get("end_time", data.end_time)
 		self.validate(time <= end_time, "Time must not be more than end time")
