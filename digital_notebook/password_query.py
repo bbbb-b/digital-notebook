@@ -108,6 +108,9 @@ class PasswordData(recordclass("PasswordData",
 		if self.print_password:
 			s.append(Colors.basic_text(f"Password: "))
 			s.append(Colors.highlight_text(f"{self.password}\n"))
+		if self.notes:
+			s.append(Colors.basic_text(f"Notes: "))
+			s.append(Colors.highlight_text(f"{self.notes}"))
 		s.append(Colors.color_reset)
 		return "".join(s)
 
