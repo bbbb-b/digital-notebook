@@ -1,7 +1,7 @@
 # Maintainer: bbbb-b <nullptr@inbox.lt>
 
 pkgname='digital-notebook-git'
-pkgver=1.0.0
+pkgver=r15.3685e26
 pkgrel=1
 pkgdesc="A Digital Notebook for storing and querying everyday information"
 arch=(x86_64) 
@@ -14,7 +14,7 @@ conflicts=()
 replaces=()
 backup=()
 options=()
-source=("$pkgname::git://github.com/bbbb-b/digital-notebook")
+source=("$pkgname::git+https://github.com/bbbb-b/digital-notebook")
 noextract=()
 md5sums=("SKIP")
 
