@@ -1,13 +1,13 @@
 # Maintainer: bbbb-b <nullptr@inbox.lt>
 
 pkgname='digital-notebook-git'
-pkgver=r15.3685e26
+pkgver=r16.fd89548
 pkgrel=1
 pkgdesc="A Digital Notebook for storing and querying everyday information"
 arch=(x86_64) 
 url="https:/github.com/bbbb-b/digital-notebook"
 license=('GPL3') 
-depends=('python' 'python-pip')
+depends=('python' 'python-pip' 'python-recordclass' 'python-humanize' 'python-pytimeparse' 'python-pyperclip')
 makedepends=('git')
 provides=()
 conflicts=()
